@@ -43,7 +43,7 @@ function generatePassword() {
   passwordLength = prompt("Enter password length:")
 
   // Check for valid input type and password length. While password length is not an integer between 8 and 128 (inclusive)...
-  while (!isNumeric(passwordLength) || passwordLength < 8 || passwordLength > 128) {
+  while (!verifyIsNumeric(passwordLength) || passwordLength < 8 || passwordLength > 128) {
     // ...inform user that the input was invalid and prompt again for new password length.
     passwordLength = prompt("Please enter a whole number that is at least 8 and at most 128.\n\nEnter password length:")
   }
@@ -74,6 +74,18 @@ function generatePassword() {
 }
 
 // Define function to check if a string consists entirely of numeric characters
-function isNumeric(string) {
-  return true;
+function verifyIsNumeric(inputString) {
+  // Define numeric characters
+  var numericChars = "0123456789";
+  // Define variable to keep track of answer and initialize to true
+  var isNumeric = true;
+
+  // Loop through each character in input string
+  for (var i = 0; i < inputString.length; i ++){
+    // If answer is currently true, check if current character is numeric and if not, make answer false.
+    isNumeric = (isNumeric && numericChars.includes(inputString[i]));
+  }
+
+  // Return answer
+  return isNumeric;
 }
