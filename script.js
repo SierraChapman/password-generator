@@ -40,9 +40,13 @@ function generatePassword() {
   // PROMPT USER FOR PASSWORD CRITERIA
 
   // Prompt user for length of password and save to password length variable
+  passwordLength = prompt("Enter password length:")
 
-  // Check for valid password length. While password length is not between 8 and 128 (inclusive)...
+  // Check for valid input type and password length. While password length is not an integer between 8 and 128 (inclusive)...
+  while (!isNumeric(passwordLength) || passwordLength < 8 || passwordLength > 128) {
     // ...inform user that the input was invalid and prompt again for new password length.
+    passwordLength = prompt("Please enter a whole number that is at least 8 and at most 128.\n\nEnter password length:")
+  }
 
   // While the password's character pool is empty (i.e. no character types have been selected)...
     // Cycle once through the character types. For each character type...
@@ -59,7 +63,7 @@ function generatePassword() {
   // GENERATE THE PASSWORD
 
   // Repeat the following a number of times given by the password length:
-    // Randomly choose a number between 0 (inclusive) and the password length (exclusive)
+    // Randomly choose a number between 0 (inclusive) and the password pool length (exclusive)
 
     // Use that number to select the next character to be added to the password
 
@@ -67,4 +71,9 @@ function generatePassword() {
 
   // Return the completed password
 
+}
+
+// Define function to check if a string consists entirely of numeric characters
+function isNumeric(string) {
+  return true;
 }
