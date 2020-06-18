@@ -14,14 +14,28 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 // Define generatePassword function
+function generatePassword() {
 
   // DECLARE VARIABLES
 
   // password length
+  var passwordLength;
   // list of character type objects containing name of character type and all possible characters of that type
+  var characterTypes = [
+    {name: "lowercase", characters: "abcdefghijklmnopqrstuvwxyz"},
+    {name: "upercase", characters: "ABCDEFGHIJKLMNOPQRSTUVWXYZ"},
+    {name: "numeric", characters: "0123456789"},
+    {name: "special", characters: " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"}
+  ];
   // possible characters to be used in password, initialized to empty string
+  var characterPool = "";
   // the password, initialized to empty string
-  // variables to hold new characters and indices when generating password
+  var password = "";
+  // variables to hold new characters and indices (in characterPool) when generating password
+  var nextCharIndex;
+  var nextChar;
+
+  // console.log(characterTypes[3].characters) // for checking that escape characters are typed correct
 
   // PROMPT USER FOR PASSWORD CRITERIA
 
@@ -52,3 +66,5 @@ generateBtn.addEventListener("click", writePassword);
     // Append the character to the end of the password
 
   // Return the completed password
+
+}
