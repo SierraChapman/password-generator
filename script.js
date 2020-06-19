@@ -35,8 +35,6 @@ function generatePassword() {
   var nextCharIndex;
   var nextChar;
 
-  // console.log(characterTypes[3].characters) // for checking that escape characters are typed correct
-
   // PROMPT USER FOR PASSWORD CRITERIA
 
   // Prompt user for length of password and save to password length variable
@@ -47,6 +45,8 @@ function generatePassword() {
     // ...inform user that the input was invalid and prompt again for new password length.
     passwordLength = prompt("Please enter a whole number that is at least 8 and at most 128.\n\nEnter password length:")
   }
+
+  console.log("Accepted password length: " + passwordLength);
 
   // While the password's character pool is empty (i.e. no character types have been selected)...
     // Cycle once through the character types. For each character type...
@@ -80,10 +80,16 @@ function verifyIsNumeric(inputString) {
   // Define variable to keep track of answer and initialize to true
   var isNumeric = true;
 
-  // Loop through each character in input string
-  for (var i = 0; i < inputString.length; i ++){
-    // If answer is currently true, check if current character is numeric and if not, make answer false.
-    isNumeric = (isNumeric && numericChars.includes(inputString[i]));
+  // If inputString is null, it's not numeric (nor a string); otherwise, look more closely.
+  if (inputString === null) {
+    isNumeric = false;
+  }
+  else {
+    // Loop through each character in input string
+    for (var i = 0; i < inputString.length; i ++){
+      // If answer is currently true, check if current character is numeric. If character not numeric, make answer false.
+      isNumeric = (isNumeric && numericChars.includes(inputString[i]));
+    }
   }
 
   // Return answer
