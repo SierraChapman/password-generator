@@ -67,7 +67,7 @@ function generatePassword() {
     // If the password's character pool is empty...
     if (characterPool === "") {
       // ...alert the user that they have to choose at least one character type.
-      alert("Please select at least one character type.")
+      alert("Please select at least one character type.");
       // The code inside the while loop will be repeated.
     }
   }
@@ -77,14 +77,19 @@ function generatePassword() {
   console.log("Characters that may appear in password: " + characterPool);
 
   // Repeat the following a number of times given by the password length:
+  for (var i = 0; i < passwordLength; i++) {
     // Randomly choose a number between 0 (inclusive) and the password pool length (exclusive)
+    nextCharIndex = Math.floor(Math.random() * characterPool.length);
 
     // Use that number to select the next character to be added to the password
+    nextChar = characterPool[nextCharIndex];
 
     // Append the character to the end of the password
+    password += nextChar;
+  }
 
   // Return the completed password
-
+  return password;
 }
 
 // Define function to check if a string consists entirely of numeric characters
