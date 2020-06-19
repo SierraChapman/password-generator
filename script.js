@@ -1,17 +1,4 @@
-// Assignment Code
-var generateBtn = document.querySelector("#generate");
-
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
-}
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+// LINES 1-106 WRITTEN BY SIERRA CHAPMAN
 
 // Define generatePassword function
 function generatePassword() {
@@ -114,3 +101,20 @@ function verifyIsNumeric(inputString) {
   // Return answer
   return isNumeric;
 }
+
+// Lines 107-120 were provided by Trilogy Education Services, a 2U, Inc.
+
+// Assignment Code
+var generateBtn = document.querySelector("#generate");
+
+// Write password to the #password input
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
+
+  passwordText.value = password;
+
+}
+
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
